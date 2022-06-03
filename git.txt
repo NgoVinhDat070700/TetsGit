@@ -1,0 +1,62 @@
+Lệnh  git stash này nhận các thay đổi chưa được cam kết của bạn (cả theo giai đoạn và không theo giai đoạn), 
+git reset ＜file＞
+Loại bỏ tệp đã chỉ định khỏi khu vực tổ chức, nhưng giữ nguyên thư mục làm việc. Thao tác này xóa tệp mà không ghi đè lên bất kỳ thay đổi nào.
+
+ 
+git reset
+Đặt lại khu vực dàn dựng để phù hợp với cam kết gần đây nhất, nhưng giữ nguyên thư mục làm việc. Điều này gỡ bỏ tất cả các tệp mà không ghi đè lên bất kỳ thay đổi nào, cho bạn cơ hội tạo lại ảnh chụp nhanh theo giai đoạn từ đầu.
+
+ 
+git reset --hard
+Đặt lại khu vực dàn dựng và thư mục làm việc để khớp với cam kết gần đây nhất. Ngoài việc hủy bỏ các thay đổi,  --hard cờ yêu cầu Git cũng ghi đè lên tất cả các thay đổi trong thư mục làm việc. Nói một cách khác: điều này sẽ xóa tất cả các thay đổi chưa được cam kết, vì vậy hãy đảm bảo rằng bạn thực sự muốn loại bỏ các phát triển cục bộ của mình trước khi sử dụng nó.
+
+
+//git commit -amend thay đổi commit cuối cùng
+câu lệnh:git commit --amend -m "an updated commit message"
+
+//Có nhiều cách để viết lại lịch sử bằng git.
+Sử dụng  git commit --amend để thay đổi thông báo nhật ký mới nhất của bạn.
+Sử dụng  git commit --amend để thực hiện các sửa đổi đối với cam kết gần đây nhất.
+Sử dụng  git rebase để kết hợp các cam kết và sửa đổi lịch sử của một chi nhánh.
+git rebase -i cung cấp khả năng kiểm soát chi tiết hơn nhiều đối với các sửa đổi lịch sử so với một rebase git tiêu chuẩn.
+
+//git reflog
+Git theo dõi các bản cập nhật cho phần ngọn của các nhánh bằng cách sử dụng một cơ chế được gọi là nhật ký tham chiếu, hoặc "nhật ký lại"
+->tham chiếu cho nhánh đang hoạt đông
+
+//git remote :đồng bộ hóa các thay đổi
+
+
+///
+Loại bỏ kết nối với kho lưu trữ từ xa được gọi  ＜name＞.
+
+git remote rename <old-name> <new-name>
+Đổi tên kết nối từ xa từ  ＜old-name＞ thành  ＜new-name＞.
+//$ git remote add fake_test https://bitbucket.com/upstream_user/reponame.git; tạo 1 repo mới
+
+//Lệnh  git push được sử dụng để ghi vào kho lưu trữ từ xa.
+
+git push <remote-name> <branch-name>
+//Git fetch:tải các cam kết, tệp và tham chiếu từ một kho lưu trữ từ xa vào kho lưu trữ cục bộ của bạn(git fetch <remote> <branch>)
+
+//Đồng bộ hóa(Synchronize origin with git fetch) git fetch origin 
+
+//Git merge:git merge origin/main
+
+// Xóa 1 nhánh hay 1 remote từ xa thêm -d git branch -D branch_name & git push origin :branch_name
+
+//Lệnh  :git push-> được sử dụng để tải nội dung kho lưu trữ cục bộ lên kho lưu trữ từ xa
+
+//git checkout main
+git pull --rebase origin
+->cách đồng bộ hóa với nhánh chính của kho lưu trữ trung tâm bằng cách sử dụng rebase:
+//
+git merge --abort
+Việc thực thi  git merge với  --abort tùy chọn sẽ thoát khỏi quá trình hợp nhất và đưa nhánh trở lại trạng thái trước khi quá trình hợp nhất bắt đầu.
+
+git reset
+Git reset có thể được sử dụng trong khi xảy ra xung đột hợp nhất để đặt lại các tệp bị xung đột về trạng thái tốt
+
+git reset --hard idcommit :Đặt lại HEAD hiện tại về trạng thái được chỉ định
+
+git revert
